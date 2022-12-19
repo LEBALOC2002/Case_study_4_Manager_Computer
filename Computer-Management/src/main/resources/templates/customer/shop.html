@@ -40,7 +40,7 @@
               </ul>
               <ul class="header-links pull-right">
                   <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                  <li><a href="#"><i class="fa fa-user-o"></i> Logout</a></li>
+                  <li><a href="/logout"><i class="fa fa-user-o"></i> Logout</a></li>
               </ul>
           </div>
       </div>
@@ -180,7 +180,7 @@
   <!-- SECTION -->
   <div class="section">
       <!-- container -->
-      <div class="container">
+      <div class="container-fluid" style="position: center">
           <!-- row -->
           <div class="row">
 
@@ -192,7 +192,7 @@
                   <div class="row">
                       <div class="products-tabs">
                           <!-- tab -->
-                          <div id="tab2" class="tab-pane fade in active">
+                          <div id="tab2" class="tab-pane fade in active col-12">
                               <div class="products-slick" data-nav="#slick-nav-2" >
                                   <!-- product -->
 <!--                                  <div class="product">-->
@@ -412,7 +412,6 @@
                 url: page.urls.getAllProducts
             })
                 .done((data) => {
-
                     $.each(data, (i, item) => {
                         product = item;
                         productAvatar = product.productAvatar;
@@ -429,13 +428,13 @@
 
             return `
                  <div id="product_${product.id}" class="col mb-5" >
-                              <div class="product" style="padding: 15px;padding-left: 10px ; width: 20% ;float: left "  >
-                                      <div class="product-img">
-                                          <img  src=${image_thumbnail} alt="">
+                              <div class="product col-lg-3" style="padding: 15px ; width: 20% ;float: left ; margin: 0 30px "  >
+                                      <div class="product-img" style="display: flex ; justify-content: center">
+                                          <img  src=${image_thumbnail} alt="" style="width: 200px; height: 150px" >
                                       </div>
                                       <div class="product-body">
                                           <h3 class="product-name">${product.productName}</h3>
-                                          <h4 class="product-price">${product.price}</h4>
+                                          <h4 class="product-price"> ${new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD',minimumFractionDigits: 0}).format(product.price)}</h4>
                                           <div class="product-rating">
                                               <i class="fa fa-star"></i>
                                               <i class="fa fa-star"></i>
