@@ -97,7 +97,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/api/roles",
                         "/home"
                 ).permitAll()
-                .antMatchers("/cp/products/create").hasAnyAuthority("ADMIN")
+                .antMatchers("/cp/products/create").hasAnyAuthority("ADMIN","USER")
                 .antMatchers("/cp/staffs/create").hasAnyAuthority("ADMIN")
                 .antMatchers("/api/staffs/**").hasAnyAuthority("ADMIN","USER")
                 .antMatchers("/api/products/**").hasAnyAuthority("ADMIN")

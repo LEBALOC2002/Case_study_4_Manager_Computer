@@ -41,7 +41,7 @@ public class ProductAPI {
     }
 
     @GetMapping("/{productId}")
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'USER')")
     public ResponseEntity<?> getById(@PathVariable String productId) {
         long pid;
         try {
@@ -63,7 +63,7 @@ public class ProductAPI {
 
 
     @PostMapping("/create")
-    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'USER')")
     public ResponseEntity<?> create(@Validated ProductCreateDTO productCreateDTO, BindingResult bindingResult) {
         new ProductCreateDTO().validate(productCreateDTO, bindingResult);
         MultipartFile imageFile = productCreateDTO.getFile();

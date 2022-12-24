@@ -28,6 +28,7 @@ public class Product extends BaseEntity{
 
     private int quantity;
 
+    @Lob
     private String description;
 
 

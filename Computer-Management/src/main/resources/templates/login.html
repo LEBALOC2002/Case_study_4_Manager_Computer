@@ -1,89 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-
 <head>
+    <title>LB COMPUTER</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
     <th:block th:replace="/layout/head :: head"></th:block>
     <th:block th:replace="/layoutProduct/head :: head"></th:block>
-    <link rel="stylesheet" href="/assets/css/preview-image.css">
-    <link rel="stylesheet" href="/assets/css/login-style.css">
-    <title>Đăng nhập</title>
+    <th:block th:replace="/layoutLogin/head :: head"></th:block>
+    <!--===============================================================================================-->
 </head>
-
 <body>
-<!--<div class="login-card-container">-->
-<!--    <div class="login-card">-->
-<!--        <div class="login-card-logo">-->
-<!--            <img src="https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2018/12/18132011/ebnkg2-1024x1024.png"-->
-<!--                 alt="logo">-->
-<!--        </div>-->
-<!--        <div class="login-card-header">-->
-<!--            <h1>Đăng nhập</h1>-->
-<!--            <div>Vui lòng đăng nhập để sử dụng</div>-->
-<!--        </div>-->
-<!--        <form id="frmLogin" class="login-card-form">-->
-<!--            <div class="form-item">-->
-<!--                <span class="form-item-icon"><i class="fa-solid fa-user-pen"></i></span>-->
-<!--                <input id="emailLogin" name="emailLogin" type="email" placeholder="Nhập email" required autofocus>-->
-<!--            </div>-->
-<!--            <div class="form-item">-->
-<!--                <span class="form-item-icon"><i class="fa-solid fa-key"></i></span>-->
-<!--                <input id="passwordLogin" name="passwordLogin" type="password" placeholder="Nhập mật khẩu" required>-->
-<!--                <span class="show-password" onclick="showPassword1()"><i class="fa-solid fa-eye"></i></span>-->
-<!--            </div>-->
-<!--            <div class="form-item-other">-->
-<!--                <div class="checkbox">-->
-<!--                    <input type="checkbox" id="rememberMeCheckBox">-->
-<!--                    <label for="rememberMeCheckBox">Nhớ tài khoản</label>-->
-<!--                </div>-->
-<!--                <a href="#">Quên mật khẩu</a>-->
-<!--            </div>-->
-<!--            <button id="btnLogin" type="button">Đăng nhập</button>-->
-<!--        </form>-->
-<!--        <div class="login-card-footer">-->
-<!--            Bạn chưa có tài khoản? <a href="/register">Tạo tài khoản mới</a>.-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 
-<div class="login-wrap">
-    <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
-        In</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"> <a href="/register"></a></label>
-        <div class="login-form">
-            <div class="sign-in-htm">
-                <form id="frmLogin" class ="form-">
-                    <div class="form-group group">
-                        <span class="form-item-icon">
-                            <i class="fa-solid fa-user-pen"></i>
-                        </span>
-                        <input type="text" class="input"  id="emailLogin" name="emailLogin" placeholder="Nhập email" required autofocus>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-form-title" style="background-image: url(/assets/thuvienlogin/images/bg-01.jpg);">
+					<span class="login100-form-title-1">
+						Sign In
+					</span>
+            </div>
+
+            <form class="login100-form validate-form" id="frmLogin">
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">Username</span>
+                    <input class="input100" type="text"  id="emailLogin" name="emailLogin" placeholder="Nhập email" required autofocus>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+                    <span class="label-input100">Password</span>
+                    <input class="input100" placeholder="Nhập mật khẩu" id = "passwordLogin" name = "passwordLogin" type="password"  required>
+                    <span class="focus-input100"></span>
+                </div>
+            </form>
+            <div class="row">
+                <div class="container-login100-form-btn col-7 ">
+                    <button class="login100-form-btn offset-md-6 " id="btnLogin"  value="Sign In" style=" background-color: #3535f8;">
+                        Login
+                    </button>
+                </div>
+                <div class="flex-sb-m w-full p-b-30 col-5">
+                    <div>
+                        <a href="/register" class="login100-form-btn  offset-md-0 ">
+                            SIGN UP
+                        </a>
                     </div>
-                    <div class="form-group group">
-                        <label class="label">Password</label>
-                        <input  class="input" data-type="password"  placeholder="Nhập mật khẩu" id = "passwordLogin" name = "passwordLogin" type="password"  required>
-                    </div>
-                    <div class="form-group group">
-                        <input id="check" type="checkbox" class="check" checked>
-                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                    </div>
-                    <div class="form-group group">
-                        <button type="button" id="btnLogin" class="btn submit-btn button"  value="Sign In">Login</button>
-                    </div>
-                    <div class="hr"></div>
-                    <div class="foot-lnk">
-                        <a href="#forgot">Forgot Password?</a>
-                    </div>
-                </form>
-                <div class="login-card-footer">
-                    Bạn chưa có tài khoản? <a href="/register">Tạo tài khoản mới</a>.
                 </div>
             </div>
-</body>
-
+        </div>
+    </div>
+</div>
+<th:block th:replace="/layoutLogin/script :: script"></th:block>
 <th:block th:replace="/layout/script :: script"/>
 <th:block th:replace="/layoutProduct/script :: script"/>
-
 <script>
     const page = {
         urls: {
@@ -171,4 +141,6 @@
         page.initializeEventControl();
     });
 </script>
+
+</body>
 </html>

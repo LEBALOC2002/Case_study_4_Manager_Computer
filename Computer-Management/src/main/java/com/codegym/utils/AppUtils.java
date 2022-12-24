@@ -51,6 +51,8 @@ public class AppUtils {
         Optional<StaffDTO> staffDTOOptional = staffService.getByEmailDTO(userName);
         return staffDTOOptional.get();
     }
+
+
     public CustomerDTO getCustomer() {
         String userName;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

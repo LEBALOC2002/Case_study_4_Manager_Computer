@@ -126,7 +126,7 @@
             page.dialogs.elements.wrapper = $("#modalUpdateProduct section .wrapper");
             page.dialogs.elements.wrapperContent = $("#modalUpdateProduct section .wrapper .content");
             page.dialogs.elements.imagePreview = $("#modalUpdateProduct section .image-preview canvas");
-            page.dialogs.elements.imagePreview.css("display", "none");
+            page.dialogs.elements.imagePreview.css("display", "hide");
             page.dialogs.elements.context = page.dialogs.elements.canvasUp[0].getContext('2d');
             page.dialogs.elements.divImagePreview = $("#modalUpdateProduct div.image-preview, #modalUpdateProduct div.file-name");
             page.dialogs.elements.btnClearImagePreview = $(".clear-image-preview i");
@@ -217,11 +217,11 @@
             page.commands.handleShowUpdateModal = () => {
                 $(".update").on("click", function () {
                     let id = $(this).data("id");
-                    // let avatarFileFolder = $(this).data("avatar-file-folder");
+                    let avatarFileFolder = $(this).data("avatar-file-folder");
                     let avatarFileName = $(this).data("avatar-file-name");
                     page.commands.getProductById(id).done((data) => {
 
-                        let avatarUrl = App.BASE_URL_CLOUD_IMAGE + "/" + App.SCALE_IMAGE_W600_H600_Q100 + "/" + "product_images" + "/" + avatarFileName;
+                        let avatarUrl = App.BASE_URL_CLOUD_IMAGE + "/" + App.SCALE_IMAGE_W600_H600_Q100 + "/" + avatarFileFolder + "/" + avatarFileName;
                         page.dialogs.commands.loadImageToCanvasUp(null, "", avatarUrl);
                         product = data;
                         productAvatar = product.productAvatar;
@@ -366,8 +366,10 @@
                 })
             }
 
+
+
             page.dialogs.commands.loadImageToCanvasUp = (imageFile, fileType, imageUrl) => {
-                page.dialogs.elements.imagePreview.css("display", "");
+                page.dialogs.elements.imagePreview.css("display", "3");
                 page.dialogs.elements.wrapper.addClass("active");
                 page.dialogs.elements.wrapperContent.css("opacity", 0);
 
@@ -402,7 +404,7 @@
 
             page.dialogs.elements.clearImagePreview = () => {
                 page.dialogs.elements.imageFileUp.val("");
-                page.dialogs.elements.imagePreview.css("display", "none");
+                page.dialogs.elements.imagePreview.css("display", "hide");
                 page.dialogs.elements.wrapper.removeClass("active");
                 page.dialogs.elements.wrapperContent.css("opacity", 1);
             }
@@ -411,6 +413,7 @@
                 page.elements.loader.removeClass("hide");
                 page.dialogs.elements.btnUpdate.prop('disabled', true);
             }
+
 
             page.commands.closeLoading = () => {
                 page.elements.loader.addClass("hide");
@@ -527,9 +530,9 @@
                     page.dialogs.commands.changeImagePreview();
                 });
 
-                page.dialogs.elements.divImagePreview.on("click", function () {
-                    page.dialogs.elements.imageFile.trigger("click");
-                });
+                // page.dialogs.elements.divImagePreview.on("click", function () {
+                //     page.dialogs.elements.imageFileUp.trigger("click");
+                // });
 
                 page.dialogs.elements.btnClearImagePreview.on("click", function () {
                     page.dialogs.elements.clearImagePreview();
@@ -539,7 +542,6 @@
                     page.dialogs.commands.handleCloseUpdateModal();
                 });
             }
-
             $(() => {
                 page.commands.loadData();
                 page.initializeEventControl();
