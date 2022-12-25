@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <th:block th:fragment="modalUpdateStaff">
   <!-- Modal -->
-  <div class="modal fade" id="modalUpdateStaff" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" id="modalUpdateStaff" data-bs-backdrop="static" data-bs-keyboard="false"  tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -112,7 +112,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Đóng</button>
           <button id="btnUpdate" type="button" class="btn btn-info">
             <i class="ion ion-md-checkmark"></i> Cập nhật
           </button>

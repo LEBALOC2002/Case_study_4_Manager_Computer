@@ -6,7 +6,6 @@
     <th:block th:replace="/layout/head :: head"/>
 </head>
 <th:block th:replace="/layoutProduct/topbar :: topbar"/>
-<th:block th:replace="/product/modalUpdateProduct :: modalUpdateProduct"></th:block>
 <th:block th:replace="/layoutProduct/left-side-menu :: leftside"/>
     <body class="fixed-left">
         <!-- Begin page -->
@@ -83,7 +82,7 @@
                 </div>
             </div>
         </div>
-
+        <th:block th:replace="/product/modalUpdateProduct :: modalUpdateProduct"></th:block>
                 <!-- End Page content -->
         <!-- jQuery  -->
         <th:block th:replace="/layoutProduct/script :: script"/>
@@ -337,9 +336,9 @@
                     }).fail((jqXHR) => {
                     let str = ``;
                     console.log('jqXHR: ', jqXHR.responseJSON);
-
                     if (jqXHR.status === 401) {
-                        App.SweetAlert.showError401();
+                       window.location.href = "/401"
+                        // App.SweetAlert.showError401();
                     } else {
                         if (jqXHR.status === 403) {
                             App.SweetAlert.showError403();

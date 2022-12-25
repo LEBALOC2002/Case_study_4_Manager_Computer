@@ -56,7 +56,7 @@ class App {
             Swal.fire({
                 icon: 'error',
                 title: 'Access Denied',
-                text: 'Invalid credentials!',
+                text: 'Thông tin danh tính không hợp lệ!',
             })
         }
 

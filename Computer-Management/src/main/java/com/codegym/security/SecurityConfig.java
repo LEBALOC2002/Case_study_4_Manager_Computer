@@ -95,6 +95,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/logout",
                         "/register",
                         "/api/roles",
+                        "/401",
                         "/home"
                 ).permitAll()
                 .antMatchers("/cp/products/create").hasAnyAuthority("ADMIN","USER")
@@ -147,7 +148,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling().accessDeniedPage("/error/403");
-
 
 
 
