@@ -122,7 +122,7 @@
 
             page.dialogs.elements.imageFileUp = $("#imageFileUp");
             page.dialogs.elements.canvasUp = $("#canvasUp");
-            page.dialogs.elements.wrapper = $("#modalUpdateProduct section .wrapper");
+            page.dialogs.elements.wrapper = $("#modalUpdateProduct section .wrappers");
             page.dialogs.elements.wrapperContent = $("#modalUpdateProduct section .wrapper .content");
             page.dialogs.elements.imagePreview = $("#modalUpdateProduct section .image-preview canvas");
             page.dialogs.elements.imagePreview.css("display", "hide");
@@ -368,7 +368,7 @@
 
 
             page.dialogs.commands.loadImageToCanvasUp = (imageFile, fileType, imageUrl) => {
-                page.dialogs.elements.imagePreview.css("display", "3");
+                page.dialogs.elements.imagePreview.css("display", "");
                 page.dialogs.elements.wrapper.addClass("active");
                 page.dialogs.elements.wrapperContent.css("opacity", 0);
 
@@ -403,7 +403,7 @@
 
             page.dialogs.elements.clearImagePreview = () => {
                 page.dialogs.elements.imageFileUp.val("");
-                page.dialogs.elements.imagePreview.css("display", "hide");
+                page.dialogs.elements.imagePreview.css("display", "none");
                 page.dialogs.elements.wrapper.removeClass("active");
                 page.dialogs.elements.wrapperContent.css("opacity", 1);
             }
